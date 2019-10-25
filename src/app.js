@@ -8,6 +8,8 @@ const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 
 const app = express()
+const port = process.env.PORT || 3000
+
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
@@ -57,6 +59,6 @@ app.get('*', (request, response) => {
     response.send('404 Not found')
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server started...')
 })
